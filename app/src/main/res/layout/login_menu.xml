@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context="com.example.angga.b_sport.Login_menu">
+    tools:context="com.example.angga.b_sport.LoginMenu">
 
     <ImageView
         android:id="@+id/logo_tulisan_putih"

@@ -8,12 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.ViewGroup;
-
-import java.util.ArrayList;
 
 public class Register extends AppCompatActivity {
 
@@ -53,10 +48,10 @@ public class Register extends AppCompatActivity {
         public Fragment getItem(int position){
             Fragment f = null;
             if (position ==0){
-                f = new reg_user();
+                f = new RegUser();
             }
             if(position==1){
-                f = new reg_owner();
+                f = new RegOwner();
             }
             return f;
         }

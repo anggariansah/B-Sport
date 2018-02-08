@@ -1,15 +1,13 @@
 package com.example.angga.b_sport;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Login_menu extends AppCompatActivity {
+public class LoginMenu extends AppCompatActivity {
 
     Button user,owner;
     TextView daftar_disini;
@@ -32,7 +30,7 @@ public class Login_menu extends AppCompatActivity {
         daftar_disini.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent daftar = new Intent (Login_menu.this, Register.class);
+                Intent daftar = new Intent (LoginMenu.this, Register.class);
                 startActivity(daftar);
             }
         });
@@ -44,7 +42,7 @@ public class Login_menu extends AppCompatActivity {
         user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent user = new Intent(Login_menu.this, login_user.class);
+                Intent user = new Intent(LoginMenu.this, LoginUser.class);
                 startActivity(user);
             }
         });
@@ -53,7 +51,7 @@ public class Login_menu extends AppCompatActivity {
         owner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent owner = new Intent(Login_menu.this, login_owner.class);
+                Intent owner = new Intent(LoginMenu.this, LoginOwner.class);
                 startActivity(owner);
             }
         });

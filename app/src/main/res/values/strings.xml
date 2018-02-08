@@ -6,6 +6,8 @@
     <string name="tidak_punya_akun">Tidak punya akun? </string>
     <string name="daftar_disini"><u>Daftar Disini</u></string>
     <string name="register"><b>Register</b></string>
+    <string name="open">Opened</string>
+    <string name="close">Closed</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -24,5 +26,17 @@
     <string name="login">LOGIN</string>
     <string name="login_fb">Login Dengan Facebook</string>
     <string name="login_gmail">Login Dengan Gmail</string>
+
+    //Bagian Layout pilih booking
+    <string name="sampai">Sampai</string>
+    <string name="cek">Cek</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="title_activity_maps_tempat">Map</string>
+    <string name="title_activity_menu_utama_owner">MenuUtamaOwner</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>

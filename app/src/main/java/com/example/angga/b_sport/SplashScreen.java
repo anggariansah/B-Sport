@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 
-public class Splash_screen extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
 
     ImageView logo;
     @Override
@@ -32,7 +32,7 @@ public class Splash_screen extends AppCompatActivity {
                 }catch(InterruptedException e){
                     e.printStackTrace();
                 }finally{
-                    Intent intent = new Intent(Splash_screen.this, Login_menu.class);
+                    Intent intent = new Intent(SplashScreen.this, LoginMenu.class);
                     startActivity(intent);
                 }
             }
