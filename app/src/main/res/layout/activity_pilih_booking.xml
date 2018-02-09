@@ -54,7 +54,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Sampai"
+                android:text="@string/sampai"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:layout_below="@+id/calendarView"
                 android:layout_centerHorizontal="true"
@@ -65,6 +65,7 @@
                 android:layout_height="100dp"
                 android:timePickerMode="spinner"
                 android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:id="@+id/timepicker2"
                 android:layout_below="@+id/calendarView"/>
 
@@ -74,7 +75,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/timepicker"
                 android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_round_orange2"
                 android:text="@string/cek"
@@ -87,9 +90,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/timepicker"
                 android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_round_orange2"
-                android:text="Lanjutkan"
+                android:text="@string/lanjutkan"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#fff"
                 android:layout_alignRight="@+id/relativeLayout2"

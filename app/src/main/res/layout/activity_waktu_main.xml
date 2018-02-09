@@ -34,8 +34,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00:00:00"
-            android:textSize="50dp"
+            android:text="@string/_00_00_00"
+            android:textSize="50sp"
             android:id="@+id/waktu"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
@@ -54,8 +54,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="00"
-            android:textSize="50dp"
+            android:text="@string/_00"
+            android:textSize="50sp"
             android:id="@+id/daysRemain"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
@@ -68,7 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/button_round_orange2"
-        android:text="Selesai Bermain"
+        android:text="@string/selesai_bermain"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="#fff"
         android:layout_alignParentBottom="true" />

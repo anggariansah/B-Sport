@@ -39,8 +39,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Judul Deskripsi Tempat"
-            android:textSize="20dp"
+            android:text="@string/judul_deskripsi_tempat"
+            android:textSize="20sp"
             android:textColor="#fff"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
@@ -53,8 +53,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ini deskripsi Aplikasinya"
-        android:textSize="18dp"
+        android:text="@string/ini_deskripsi_aplikasinya"
+        android:textSize="18sp"
         android:textColor="#000"
         android:layout_marginTop="11dp"
         android:layout_below="@+id/lay1"
@@ -65,9 +65,9 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="Book Now"
+        android:text="@string/book_now"
         android:textColor="#fff"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"

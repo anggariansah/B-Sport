@@ -8,7 +8,6 @@
     <string name="register"><b>Register</b></string>
     <string name="open">Opened</string>
     <string name="close">Closed</string>
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     //Bagian Layout Register
@@ -33,10 +32,51 @@
     <string name="lanjutkan">Lanjutkan</string>
     <string name="title_activity_maps_tempat">Map</string>
     <string name="title_activity_menu_utama_owner">MenuUtamaOwner</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Settings</string>
+
+    //Bagian Layout Pemesanan_10
+    <string name="nomor_lapangan"><b>Lapangan Badminton 1</b></string>
+    <string name="kode_booking">"Kode Booking    : BK003"</string>
+    <string name="nama_pembook">"Nama                  : Harun"</string>
+    <string name="tanggal_book">"Tanggal              : 17 Januari 2018"</string>
+    <string name="Jam_booking">"Jam                     : 11.00 &#8211; 12.00"</string>
+    <string name="DP_booking">"DP                        : Rp 25.000,&#8211;"</string>
+    <string name="button_lanjut">LANJUTKAN PEMBAYARAN</string>
+
+    //Bagian layout menu_booking_berjalan
+    <string name="gor_sima"><b>GOR Sima</b></string>
+    <string name="bk003"><b>BK003</b></string>
+    <string name="lapangan"><b>Lapangan 1</b></string>
+    <string name="track">Track</string>
+    <string name="timer">Timer</string>
+
+    //Bagian layout kelola lapangan 16
+    <string name="booking_list"><b>Booking List</b></string>
+    <string name="book1">11.00 &#8211; 12.00 </string>
+    <string name="book1_name">Harun</string>
+    <string name="book2">15.00 &#8211; 16.00 </string>
+    <string name="book2_name">Dono</string>
+
+    //Bagian layout activity_detail_place
+    <string name="judul_deskripsi_tempat">Judul Deskripsi Tempat</string>
+    <string name="ini_deskripsi_aplikasinya">Ini deskripsi Aplikasinya</string>
+    <string name="book_now">Book Now</string>
+
+    //Bagian layout activity_ubah_deskripsi
+    <string name="deskripsi">Deskripsi</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="jam_operasional">Jam Operasional</string>
+    <string name="harga">Harga</string>
+    <string name="nomer_telepon_hp">Nomer Telepon / Hp</string>
+    <string name="batal">Batal</string>
+    <string name="simpan">Simpan</string>
+
+    //Bagian layout activity_waktu_main
+    <string name="_00_00_00">00:00:00</string>
+    <string name="_00">00</string>
+    <string name="selesai_bermain">Selesai Bermain</string>
+
 
 </resources>

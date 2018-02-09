@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.angga.b_sport.Menu_Booking_Berjalan">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:contentPaddingBottom="10dp"
+        app:contentPaddingLeft="5dp"
+        app:contentPaddingRight="10dp">
+
+        <RelativeLayout
+            android:id="@+id/identitas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/gambar_lapang"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="-13dp"
+                android:src="@drawable/lapangan_badminton" />
+
+            <TextView
+                android:id="@+id/gor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/gambar_lapang"
+                android:layout_toRightOf="@+id/gambar_lapang"
+                android:gravity="center"
+                android:text="@string/gor_sima"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/lapang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gor"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/gambar_lapang"
+                android:layout_toRightOf="@+id/gambar_lapang"
+                android:gravity="center"
+                android:text="@string/lapangan"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/booking"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lapang"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/gambar_lapang"
+                android:layout_toRightOf="@+id/gambar_lapang"
+                android:gravity="center"
+                android:text="@string/bk003"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/nama_pembook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gambar_lapang"
+                android:layout_marginTop="-10dp"
+                android:gravity="start"
+                android:text="@string/nama_pembook"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tanggal_pembook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nama_pembook"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:text="@string/tanggal_book"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/jam_pembook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tanggal_pembook"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:text="@string/Jam_booking"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/dp_pembook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/jam_pembook"
+                android:layout_marginTop="10dp"
+                android:gravity="start"
+                android:text="@string/DP_booking"
+                android:textColor="#fff"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/tracker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/dp_pembook"
+                android:layout_marginEnd="100dp"
+                android:layout_marginRight="100dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_round_white"
+                android:text="@string/track"
+                android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dp_pembook"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="-90dp"
+                android:layout_marginStart="-90dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@+id/tracker"
+                android:layout_toRightOf="@+id/tracker"
+                android:background="@drawable/button_round_white"
+                android:text="@string/timer"
+                android:textColor="#fff" />
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

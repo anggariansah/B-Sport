@@ -56,7 +56,16 @@
         <activity android:name=".MenuUtamaOwner" />
         <activity android:name=".WaktuMain" />
         <activity android:name=".UbahDeskripsi" />
-        <activity android:name=".DetailPlace"></activity>
+        <activity android:name=".DetailPlace"> </activity>
+        <activity android:name=".Pilih_lapangan_8" />
+        <activity android:name=".Pemesanan_10">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginMenu" />
+        </activity>
+        <activity android:name=".Menu_Booking_11" />
+        <activity android:name=".Notifikasi_Owner_19" />
+        <activity android:name=".Kelola_Lapangan_Owner_16"> </activity>
     </application>
 
 </manifest>
