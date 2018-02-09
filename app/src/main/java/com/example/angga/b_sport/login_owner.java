@@ -11,7 +11,7 @@ import android.widget.Button;
 public class login_owner extends AppCompatActivity {
 
     Toolbar toolbar;
-    Button button;
+    Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,5 +27,4 @@ public class login_owner extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
     }
-
 }

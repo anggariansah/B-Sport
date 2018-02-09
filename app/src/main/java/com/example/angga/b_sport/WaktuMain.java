@@ -1,8 +1,10 @@
 package com.example.angga.b_sport;
 
 import android.os.CountDownTimer;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import java.util.Date;
@@ -10,11 +12,20 @@ import java.util.Date;
 public class WaktuMain extends AppCompatActivity {
 
     TextView txDayRem, txwaktu;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_waktu_main);
+
+        //toolbar
+        toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.tb_waktu_main);
+        setSupportActionBar(toolbar);
+
+        //back_button
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
         txDayRem = (TextView)findViewById(R.id.daysRemain);
         txwaktu = (TextView)findViewById(R.id.waktu);

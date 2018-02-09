@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.angga.b_sport.Pemesanan_10;
+import com.example.angga.b_sport.PilihBooking;
 import com.example.angga.b_sport.R;
 import com.example.angga.b_sport.adapter.SingleListAdapter;
 import com.example.angga.b_sport.model.Single;
@@ -95,7 +96,7 @@ public class FragmentSingle extends Fragment implements SingleListAdapter.OnGrid
 
     @Override
     public void onGridItemClick(View v, int position) {
-        Intent a = new Intent(getActivity(), Pemesanan_10.class);
+        Intent a = new Intent(getActivity(), PilihBooking.class);
         startActivity(a);
 
     }

@@ -39,7 +39,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginMenu" />
         </activity>
-        <activity android:name=".PilihBooking" />
+        <activity android:name=".PilihBooking" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Pilih_lapangan_8" />
+        </activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -54,18 +58,42 @@
 
         <activity android:name=".MenuUtamaUser" />
         <activity android:name=".MenuUtamaOwner" />
-        <activity android:name=".WaktuMain" />
-        <activity android:name=".UbahDeskripsi" />
-        <activity android:name=".DetailPlace"> </activity>
-        <activity android:name=".Pilih_lapangan_8" />
+        <activity android:name=".WaktuMain" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Menu_Booking_11" />
+        </activity>
+        <activity android:name=".UbahDeskripsi">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuUtamaOwner" />
+        </activity>
+        <activity android:name=".DetailPlace">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuUtamaUser" />
+        </activity>
+        <activity android:name=".Pilih_lapangan_8" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".DetailPlace" />
+        </activity>
         <activity android:name=".Pemesanan_10">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginMenu" />
+                android:value=".PilihBooking" />
         </activity>
         <activity android:name=".Menu_Booking_11" />
-        <activity android:name=".Notifikasi_Owner_19" />
-        <activity android:name=".Kelola_Lapangan_Owner_16"> </activity>
+        <activity android:name=".Notifikasi_Owner_19">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuUtamaOwner" />
+        </activity>
+        <activity android:name=".Kelola_Lapangan_Owner_16">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MenuUtamaOwner" />
+        </activity>
     </application>
 
 </manifest>

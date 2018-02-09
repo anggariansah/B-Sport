@@ -39,7 +39,7 @@
     //Bagian Layout Pemesanan_10
     <string name="nomor_lapangan"><b>Lapangan Badminton 1</b></string>
     <string name="kode_booking">"Kode Booking    : BK003"</string>
-    <string name="nama_pembook">"Nama                  : Harun"</string>
+    <string name="nama_pembook">"Nama                  : Angga"</string>
     <string name="tanggal_book">"Tanggal              : 17 Januari 2018"</string>
     <string name="Jam_booking">"Jam                     : 11.00 &#8211; 12.00"</string>
     <string name="DP_booking">"DP                        : Rp 25.000,&#8211;"</string>
@@ -55,7 +55,7 @@
     //Bagian layout kelola lapangan 16
     <string name="booking_list"><b>Booking List</b></string>
     <string name="book1">11.00 &#8211; 12.00 </string>
-    <string name="book1_name">Harun</string>
+    <string name="book1_name">Angga</string>
     <string name="book2">15.00 &#8211; 16.00 </string>
     <string name="book2_name">Dono</string>
 
@@ -77,6 +77,31 @@
     <string name="_00_00_00">00:00:00</string>
     <string name="_00">00</string>
     <string name="selesai_bermain">Selesai Bermain</string>
+
+    //Buat tab lapangan
+    <string name="lapangan_2">Lapangan Badminton 2</string>
+    <string name="book2_1">09.00 &#8211; 10.00 </string>
+    <string name="book2_1_name">Alvin</string>
+    <string name="book2_2">11.00 &#8211; 12.00 </string>
+    <string name="book2_2_name">Andi</string>
+
+    <string name="lapangan_3">Lapangan Badminton 3</string>
+    <string name="book3_1">10.00 &#8211; 11.00 </string>
+    <string name="book3_1_name">Ardi</string>
+    <string name="book3_2">13.00 &#8211; 14.00 </string>
+    <string name="book3_2_name">Tandi</string>
+
+    <string name="lapangan_4">Lapangan Badminton 4</string>
+    <string name="book4_1">12.00 &#8211; 13.00 </string>
+    <string name="book4_1_name">Rian</string>
+    <string name="book4_2">14.00 &#8211; 15.00 </string>
+    <string name="book4_2_name">Budi</string>
+
+    <string name="lapangan_5">Lapangan Badminton 5</string>
+    <string name="book5_1">18.00 &#8211; 19.00 </string>
+    <string name="book5_1_name">Deni</string>
+    <string name="book5_2">19.00 &#8211; 20.00 </string>
+    <string name="book5_2_name">Karman</string>
 
 
 </resources>

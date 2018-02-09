@@ -8,70 +8,72 @@
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar_owner"
+        android:id="@+id/toolbar_detail_tempat"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="Detail Tempat"
-        app:titleMarginStart="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"/>
-    
+        app:titleMarginStart="100dp" />
+
     <ImageView
+        android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:id="@+id/img"
-        android:background="@drawable/button_round_grey"
-        android:layout_below="@+id/toolbar_owner"/>
+        android:layout_below="@+id/toolbar_detail_tempat"
+        android:background="@drawable/button_round_grey" />
 
     <RelativeLayout
+        android:id="@+id/lay1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/colorPrimary"
-        android:layout_below="@+id/img"
-        android:id="@+id/lay1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/img"
+        android:background="@color/colorPrimary">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/judul_deskripsi_tempat"
-            android:textSize="20sp"
-            android:textColor="#fff"
-            android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp" />
+            android:layout_marginStart="21dp"
+            android:text="@string/judul_deskripsi_tempat"
+            android:textColor="#fff"
+            android:textSize="20sp" />
 
     </RelativeLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/ini_deskripsi_aplikasinya"
-        android:textSize="18sp"
-        android:textColor="#000"
-        android:layout_marginTop="11dp"
-        android:layout_below="@+id/lay1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/lay1"
         android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="11dp"
+        android:text="@string/ini_deskripsi_aplikasinya"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
     <Button
+        android:id="@+id/book_now"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:text="@string/book_now"
-        android:textColor="#fff"
-        android:textSize="25sp"
-        android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary"
+        android:text="@string/book_now"
+        android:textColor="#fff"
+        android:textSize="25sp" />
 
 
 </RelativeLayout>
