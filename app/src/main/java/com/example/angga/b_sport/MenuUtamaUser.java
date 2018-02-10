@@ -66,9 +66,10 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
                 Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.booking:
+
                 Intent book = new Intent(MenuUtamaUser.this, Menu_Booking_11.class);
                 startActivity(book);
-                Toast.makeText(getApplicationContext(),"Harap Tunggu",Toast.LENGTH_SHORT).show();
+
                 break;
             case R.id.topup:
                 Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();

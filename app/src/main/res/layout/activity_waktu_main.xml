@@ -42,29 +42,8 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/kotak_oren"
-        android:layout_marginTop="17dp"
-        android:layout_below="@+id/tb_waktu_main"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/_00"
-            android:textSize="50sp"
-            android:id="@+id/daysRemain"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
-
-
-    </RelativeLayout>
-
     <Button
-        android:id="@+id/cek"
+        android:id="@+id/selesai"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/button_round_orange2"
@@ -72,6 +51,16 @@
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="#fff"
         android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50dp"
+        android:layout_below="@+id/tb_waktu_main"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp"
+        android:text="Sisa Waktu" />
 
 
 </RelativeLayout>

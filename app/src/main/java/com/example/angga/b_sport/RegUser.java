@@ -70,14 +70,9 @@ public class RegUser extends Fragment {
                 noh = nohp.getText().toString();
                 nam = nama.getText().toString();
 
-                if(TextUtils.isEmpty(emai) || TextUtils.isEmpty(pas) ||  TextUtils.isEmpty(noh) || TextUtils.isEmpty(nam)){
 
-                }else if(!validasiEmail(emai)){
+                new simpan().execute();
 
-                }else{
-                    new simpan().execute();
-
-                }
             }
         });
 
@@ -135,7 +130,7 @@ public class RegUser extends Fragment {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://192.168.56.1/B-Sport/RegisterUser.php");
+        HttpPost request = new HttpPost("http://anggariansah.000webhostapp.com//RegisterUser.php");
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
             nvp.add(new BasicNameValuePair("nama",nama));

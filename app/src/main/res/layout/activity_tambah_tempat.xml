@@ -15,7 +15,7 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Ubah Deskripsi"
+        app:title="Tambah Tempat"
         app:titleMarginStart="100dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -37,10 +37,10 @@
             <ImageButton
                 android:layout_width="250dp"
                 android:layout_height="150dp"
-                android:id="@+id/imageButton"
+                android:id="@+id/iton"
                 android:layout_marginTop="23dp"
                 android:background="#ececec"
-                android:src="@drawable/lapangan_badminton"
+                android:src="@drawable/ic_image"
                 android:scaleType="centerInside"
                 android:layout_centerHorizontal="true" />
 
@@ -59,11 +59,9 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@+id/tx1"
                 android:id="@+id/desk"
-                android:padding="10dp"
-                android:text="@string/ini_deskripsi_aplikasinya"
                 android:background="@drawable/button_round_grey"
                 android:layout_margin="10dp"/>
 
@@ -82,11 +80,9 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_below="@+id/tx2"
                 android:id="@+id/lokasi"
-                android:text="@string/tempat"
-                android:padding="10dp"
                 android:background="@drawable/button_round_grey"
                 android:layout_margin="10dp"/>
 
@@ -108,8 +104,6 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/tx3"
                 android:id="@+id/jam"
-                android:text="08.00 - 22.00"
-                android:padding="10dp"
                 android:background="@drawable/button_round_grey"
                 android:layout_margin="10dp"/>
 
@@ -131,8 +125,6 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/tx4"
                 android:id="@+id/Harga"
-                android:text="@string/harga1"
-                android:padding="10dp"
                 android:background="@drawable/button_round_grey"
                 android:layout_margin="10dp"/>
 
@@ -154,8 +146,6 @@
                 android:layout_height="50dp"
                 android:layout_below="@+id/tx5"
                 android:id="@+id/nope"
-                android:text="085720978134"
-                android:padding="10dp"
                 android:background="@drawable/button_round_grey"
                 android:layout_margin="10dp"/>
 
@@ -175,7 +165,7 @@
                 android:textColor="#fff" />
 
             <Button
-                android:id="@+id/simpan"
+                android:id="@+id/bah"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/nope"

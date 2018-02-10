@@ -68,14 +68,9 @@ public class RegOwner extends Fragment {
                 noh = nohp.getText().toString();
                 nam = nama.getText().toString();
 
-                if(TextUtils.isEmpty(emai) || TextUtils.isEmpty(pas) ||  TextUtils.isEmpty(noh) || TextUtils.isEmpty(nam)){
 
-                }else if(!validasiEmail(emai)){
+                new simpan().execute();
 
-                }else{
-                    new simpan().execute();
-
-                }
             }
         });
 
@@ -120,7 +115,7 @@ public class RegOwner extends Fragment {
     public void resultSimpan(String HasilProses){
         if(HasilProses.trim().equalsIgnoreCase("OK")){
             Toast.makeText(getActivity(), "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
-            Intent a = new Intent(getActivity(), LoginUser.class);
+            Intent a = new Intent(getActivity(), LoginOwner.class);
             startActivity(a);
         }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
             Toast.makeText(getActivity(), "Pendaftaran Gagal Coba Kembali", Toast.LENGTH_SHORT).show();
@@ -133,7 +128,7 @@ public class RegOwner extends Fragment {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://192.168.56.1/B-Sport/RegisterOwner.php");
+        HttpPost request = new HttpPost("http://anggariansah.000webhostapp.com/RegisterOwner.php");
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
             nvp.add(new BasicNameValuePair("nama",nama));

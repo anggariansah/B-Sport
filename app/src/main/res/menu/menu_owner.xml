@@ -7,15 +7,15 @@
         android:title="Beranda" />
     <item
         android:id="@+id/kelola"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_booking"
         android:title="Kelola Lapangan" />
     <item
         android:id="@+id/notif"
-        android:icon="@drawable/ic_stars"
+        android:icon="@drawable/ic_notif"
         android:title="Notifikasi" />
     <item
         android:id="@+id/tambah"
-        android:icon="@drawable/ic_booking"
+        android:icon="@drawable/ic_add"
         android:title="Tambah Area" />
     <item
         android:id="@+id/topup"

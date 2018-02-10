@@ -45,7 +45,7 @@ public class LoginUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_user);
 
-        login = (Button)findViewById(R.id.login_user);
+        login = (Button) findViewById(R.id.btn_login);
         email = (EditText) findViewById(R.id.email_user);
         pass = (EditText) findViewById(R.id.password_user);
 
@@ -69,14 +69,9 @@ public class LoginUser extends AppCompatActivity {
             public void onClick(View v) {
                 emai = email.getText().toString();
                 pas = pass.getText().toString();
-                if(TextUtils.isEmpty(emai) || TextUtils.isEmpty(pas)){
 
-                }else if(!validasiEmail(emai)){
+                new Masuk().execute();
 
-                }else{
-                    new Masuk().execute();
-
-                }
 
             }
         });
@@ -99,7 +94,7 @@ public class LoginUser extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            dialog = ProgressDialog.show(getApplicationContext(),"","Harap Tunggu Sedang Memverifikasi",true);
+            dialog = ProgressDialog.show(LoginUser.this,"","Harap Tunggu Sedang Memverifikasi",true);
 
         }
 
@@ -123,7 +118,7 @@ public class LoginUser extends AppCompatActivity {
 
             session.createUserLoginSession("User Session ", emai);
 
-            Intent a = new Intent(getApplicationContext(), LoginUser.class);
+            Intent a = new Intent(LoginUser.this, MenuUtamaUser.class);
             startActivity(a);
         }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
             Toast.makeText(getApplicationContext(), "Username Atau Password Anda Salah!!", Toast.LENGTH_SHORT).show();
@@ -136,7 +131,7 @@ public class LoginUser extends AppCompatActivity {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://192.168.56.1/B-Sport/LoginUser.php");
+        HttpPost request = new HttpPost("http://anggariansah.000webhostapp.com/LoginUser.php");
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
             nvp.add(new BasicNameValuePair("email",email));

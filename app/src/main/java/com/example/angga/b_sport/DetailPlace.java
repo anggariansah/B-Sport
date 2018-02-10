@@ -35,7 +35,7 @@ public class DetailPlace extends AppCompatActivity {
         book_now.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent pindah = new Intent(DetailPlace.this, Pilih_lapangan_8.class);
+                Intent pindah = new Intent(DetailPlace.this, PilihBooking.class);
                 startActivity(pindah);
             }
         });

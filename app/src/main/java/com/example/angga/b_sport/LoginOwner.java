@@ -38,6 +38,8 @@ public class LoginOwner extends AppCompatActivity {
     EditText email,pass;
     String emai,pas,Result;
 
+    int vis = 0;
+
     SesionLogin session;
 
     @Override
@@ -46,15 +48,15 @@ public class LoginOwner extends AppCompatActivity {
         setContentView(R.layout.login_owner);
 
 
-        login = (Button)findViewById(R.id.login_owner);
-        email = (EditText) findViewById(R.id.email_user);
-        pass = (EditText) findViewById(R.id.password_user);
+        login = (Button)findViewById(R.id.btn_ownerlgn);
+        email = (EditText) findViewById(R.id.email_owner);
+        pass = (EditText) findViewById(R.id.password_owner);
 
-        session = new SesionLogin(getApplicationContext());
-
-        Toast.makeText(getApplicationContext(),
-                "User Login Status: " + session.isUserLoggedIn(),
-                Toast.LENGTH_LONG).show();
+//        session = new SesionLogin(getApplicationContext());
+//
+//        Toast.makeText(getApplicationContext(),
+//                "User Login Status: " + session.isUserLoggedIn(),
+//                Toast.LENGTH_LONG).show();
 
         //toolbar
         toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.toolbar_owner);
@@ -71,14 +73,9 @@ public class LoginOwner extends AppCompatActivity {
             public void onClick(View v) {
                 emai = email.getText().toString();
                 pas = pass.getText().toString();
-                if(TextUtils.isEmpty(emai) || TextUtils.isEmpty(pas)){
 
-                }else if(!validasiEmail(emai)){
+                new Masuk().execute();
 
-                }else{
-                    new Masuk().execute();
-
-                }
 
             }
         });
@@ -100,7 +97,7 @@ public class LoginOwner extends AppCompatActivity {
 
         @Override
         protected void onPreExecute() {
-            dialog = ProgressDialog.show(getApplicationContext(),"","Harap Tunggu Sedang Memverifikasi",true);
+            dialog = ProgressDialog.show(LoginOwner.this,"","Harap Tunggu Sedang Memverifikasi",true);
 
         }
 
@@ -122,9 +119,10 @@ public class LoginOwner extends AppCompatActivity {
         if(HasilProses.trim().equalsIgnoreCase("OK")){
             Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
 
-            session.createUserLoginSession("User Session ", emai);
+         //   session.createUserLoginSession("User Session ", emai);
 
-            Intent a = new Intent(getApplicationContext(), LoginUser.class);
+            Intent a = new Intent(LoginOwner.this, MenuUtamaOwner.class);
+            a.putExtra("view",vis);
             startActivity(a);
         }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
             Toast.makeText(getApplicationContext(), "Username Atau Password Anda Salah!!", Toast.LENGTH_SHORT).show();
@@ -137,7 +135,7 @@ public class LoginOwner extends AppCompatActivity {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://192.168.56.1/B-Sport/LoginOwner.php");
+        HttpPost request = new HttpPost("http://anggariansah.000webhostapp.com/LoginOwner.php");
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
             nvp.add(new BasicNameValuePair("email",email));

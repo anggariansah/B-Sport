@@ -39,7 +39,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".LoginMenu" />
         </activity>
-        <activity android:name=".PilihBooking" >
+        <activity android:name=".PilihBooking">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Pilih_lapangan_8" />
@@ -58,7 +58,7 @@
 
         <activity android:name=".MenuUtamaUser" />
         <activity android:name=".MenuUtamaOwner" />
-        <activity android:name=".WaktuMain" >
+        <activity android:name=".WaktuMain">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menu_Booking_11" />
@@ -73,7 +73,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuUtamaUser" />
         </activity>
-        <activity android:name=".Pilih_lapangan_8" >
+        <activity android:name=".Pilih_lapangan_8">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".DetailPlace" />
@@ -94,6 +94,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuUtamaOwner" />
         </activity>
+        <activity android:name=".TambahTempat"></activity>
     </application>
 
 </manifest>

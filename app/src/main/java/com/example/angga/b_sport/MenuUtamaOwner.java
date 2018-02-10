@@ -14,6 +14,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -22,12 +26,18 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
     ActionBarDrawerToggle ab;
     DrawerLayout dl;
     NavigationView nv;
+    Button ubah;
+    ImageButton tambah;
+    RelativeLayout des;
+    int vis = 0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_utama_owner);
+
+        vis = getIntent().getExtras().getInt("view");
 
         //Membuat toolbar Manual
 
@@ -43,6 +53,29 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
         nv = (NavigationView)findViewById(R.id.navigation);
         nv.setNavigationItemSelectedListener(this);
 
+        des = (RelativeLayout) findViewById(R.id.grid);
+
+        des.setVisibility(View.GONE);
+        if(vis == 1){
+            des.setVisibility(View.VISIBLE);
+        }
+
+        ubah = (Button) findViewById(R.id.button3);
+        ubah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(MenuUtamaOwner.this, UbahDeskripsi.class );
+                startActivity(pindah);
+            }
+        });
+        tambah = (ImageButton) findViewById(R.id.button2);
+        tambah.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(MenuUtamaOwner.this, TambahTempat.class );
+                startActivity(pindah);
+            }
+        });
 
     }
 
@@ -63,7 +96,8 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
                 Toast.makeText(getApplicationContext(),"Harap Tunggu",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tambah:
-                Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();
+                Intent pindah = new Intent(MenuUtamaOwner.this, TambahTempat.class );
+                startActivity(pindah);
                 break;
             case R.id.topup:
                 Toast.makeText(getApplicationContext(),"Test",Toast.LENGTH_SHORT).show();

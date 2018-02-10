@@ -7,50 +7,53 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:background="@drawable/round_putih"
-        android:padding="10dp"
-        android:src="@drawable/ic_person"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="29dp"
-        android:layout_marginStart="29dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:text="@string/nama"
-        android:textSize="25sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_putih"
+            android:padding="10dp"
+            android:src="@drawable/ic_person"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/textView1"
+            android:layout_alignStart="@+id/textView1"
+            android:layout_marginLeft="32dp"
+            android:layout_marginStart="32dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:text="@string/nama"
+            android:textSize="25sp"
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/imageView"
+            android:layout_alignLeft="@+id/imageView"
+            android:layout_alignStart="@+id/imageView" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView1"
-        android:text="Saldo :  RP"
-        android:textSize="25sp"
-        android:layout_marginBottom="12dp"
-        android:layout_alignBottom="@+id/imageView"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:text="Saldo :  RP"
+            android:textSize="25sp"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="21dp"
+            android:layout_marginStart="21dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:text="0"
-        android:textSize="25sp"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_alignBottom="@+id/textView1"
-        android:layout_toRightOf="@+id/textView1"
-        android:layout_toEndOf="@+id/textView1"
-        android:layout_marginLeft="11dp"
-        android:layout_marginStart="11dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:text="0"
+            android:textSize="25sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_toRightOf="@+id/textView1"
+            android:layout_toEndOf="@+id/textView1" />
 
 </RelativeLayout>
