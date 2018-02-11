@@ -29,7 +29,7 @@ public class TambahTempat extends AppCompatActivity {
 
         //Membuat toolbar Manual
 
-        tb = (Toolbar) findViewById(R.id.tb);
+        tb = (Toolbar) findViewById(R.id.tb_ubah_deskripsi);
         setSupportActionBar(tb);
         //back_button
         ActionBar ab = getSupportActionBar();
