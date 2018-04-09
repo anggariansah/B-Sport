@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/tb"
         android:id="@+id/gridLapang"
-        android:numColumns="1"
+        android:numColumns="2"
         android:padding="5dp">
     </GridView>
 
@@ -36,17 +36,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"/>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/tambah"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="81dp"
-        android:src="@drawable/ic_add"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="17dp"
-        android:layout_marginEnd="17dp" />
 
 </RelativeLayout>
 

@@ -28,93 +28,39 @@
                 android:id="@+id/tb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                app:titleTextColor="#fff"
+                app:title="Menu Owner"/>
 
-            <RelativeLayout
+
+            <GridView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_margin="10dp"
-                android:id="@+id/grid"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/tb"
-                android:background="@drawable/kotak_oren">
+                android:id="@+id/gridOwner"
+                android:numColumns="1"
+                android:padding="5dp">
+            </GridView>
 
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:background="@color/colorPrimary"
-                    android:text="Ubah Deskripsi"
-                    android:textColor="#fff"
-                    android:textSize="15sp"
-                    android:layout_below="@+id/textView45"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginEnd="20dp" />
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"/>
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="21dp"
-                    android:layout_marginStart="21dp"
-                    android:text="@string/judul_deskripsi_tempat"
-                    android:textSize="20sp"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginTop="19dp" />
-
-                <ImageView
-                    android:id="@+id/imageview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_notif"
-                    android:layout_marginTop="24dp"
-                    android:layout_below="@+id/textView8"
-                    android:layout_alignLeft="@+id/textView8"
-                    android:layout_alignStart="@+id/textView8" />
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginStart="30dp"
-                    android:text="- 4 Lapangan Utama"
-                    android:layout_above="@+id/imageView4"
-                    android:layout_toRightOf="@+id/imageView4"
-                    android:layout_toEndOf="@+id/imageView4" />
-
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/money_icon"
-                    android:layout_marginTop="24dp"
-                    android:layout_below="@+id/imageview"
-                    android:layout_alignLeft="@+id/imageview"
-                    android:layout_alignStart="@+id/imageview" />
-                <TextView
-                    android:id="@+id/textView45"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="- 4 Lapangan Utama"
-                    android:layout_alignTop="@+id/imageView4"
-                    android:layout_alignLeft="@+id/textView9"
-                    android:layout_alignStart="@+id/textView9"
-                    android:layout_marginTop="10dp" />
-
-
-            </RelativeLayout>
-
-            <ImageButton
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/tambah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="81dp"
                 android:src="@drawable/ic_add"
-                android:background="@drawable/kotak_oren"
-                android:layout_alignParentBottom="true"/>
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="17dp"
+                android:layout_marginEnd="17dp" />
 
         </RelativeLayout>
 

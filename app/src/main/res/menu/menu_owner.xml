@@ -5,10 +5,7 @@
         android:id="@+id/beranda"
         android:icon="@drawable/ic_home"
         android:title="Beranda" />
-    <item
-        android:id="@+id/kelola"
-        android:icon="@drawable/ic_booking"
-        android:title="Kelola Lapangan" />
+
     <item
         android:id="@+id/notif"
         android:icon="@drawable/ic_notif"
@@ -17,17 +14,13 @@
         android:id="@+id/tambah"
         android:icon="@drawable/ic_add"
         android:title="Tambah Area" />
-    <item
-        android:id="@+id/topup"
-        android:icon="@drawable/ic_payment"
-        android:title="Top Up" />
 
     <item android:title="Setting">
         <menu>
             <item
-                android:id="@+id/setting"
-                android:icon="@drawable/ic_settings"
-                android:title="Setting" />
+                android:id="@+id/about"
+                android:icon="@drawable/about"
+                android:title="About" />
             <item
                 android:id="@+id/keluar"
                 android:icon="@drawable/ic_exit"

@@ -130,7 +130,7 @@ public class RegUser extends Fragment {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://anggariansah.000webhostapp.com//RegisterUser.php");
+        HttpPost request = new HttpPost("https://anggariansah.000webhostapp.com/RegisterUser.php");
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
             nvp.add(new BasicNameValuePair("nama",nama));

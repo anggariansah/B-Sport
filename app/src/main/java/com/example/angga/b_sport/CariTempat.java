@@ -4,20 +4,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
+import android.widget.SearchView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,66 +21,51 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
+public class CariTempat extends AppCompatActivity {
 
     GridView listData;
-    List<ItemKelolaLapangan> arrayItembaru;
-    AdapterKelolaLapangan objAdapter;
-    private ItemKelolaLapangan semuaItemobj;
-    ArrayList<String> allid, allnomer, allldesk, allgambar;
-    String[] arrayid, arraynomer, arraydesk, arraygambar;
-    Toolbar toolbar;
-    ProgressBar progress;
+    List<ItemCariTempat> arrayItembaru;
+    AdapterCariTempat objAdapter;
+    private ItemCariTempat semuaItemobj;
+    ArrayList<String> allid, allnama, alllokasi, allharga ,allgambar;
+    String[] arrayid, arraynama, arraylokasi, arrayharga, arraygambar;
+    Toolbar tb;
     FloatingActionButton tambah;
+    ProgressBar progress;
 
-    String data;
+    SearchView search;
+    int textlength = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.kelola__lapangan__owner_16);
+        setContentView(R.layout.activity_cari_tempat);
 
-        data = getIntent().getExtras().getString("id");
-
-        //toolbar
-        toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.tb);
-        setSupportActionBar(toolbar);
-
-        //back_button
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-
-
-        tambah = (FloatingActionButton)findViewById(R.id.tambah);
-        tambah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pindah = new Intent(Kelola_Lapangan_Owner_16.this, TambahLapangan.class);
-                pindah.putExtra("id",data);
-                startActivity(pindah);
-            }
-        });
+        tb = (Toolbar) findViewById(R.id.tb);
+        setSupportActionBar(tb);
 
         progress = (ProgressBar)findViewById(R.id.progressBar);
 
-        listData = (GridView)findViewById(R.id.gridLapang);
-        arrayItembaru = new ArrayList<ItemKelolaLapangan>();
+        listData = (GridView)findViewById(R.id.gridUser);
+        arrayItembaru = new ArrayList<ItemCariTempat>();
 
         allid = new ArrayList<String>();
-        allnomer = new ArrayList<String>();
-        allldesk = new ArrayList<String>();
+        allnama = new ArrayList<String>();
+        alllokasi = new ArrayList<String>();
+        allharga = new ArrayList<String>();
         allgambar = new ArrayList<String>();
 
         arrayid = new String[allid.size()];
-        arraynomer = new String[allnomer.size()];
-        arraydesk = new String[allldesk.size()];
+        arraylokasi = new String[alllokasi.size()];
+        arraynama = new String[allnama.size()];
+        arrayharga = new String[allharga.size()];
         arraygambar = new String[allgambar.size()];
 
 
-        if(JsonUtils.isNetworkAvailable(Kelola_Lapangan_Owner_16.this)){
-            new Tampil().execute("https://anggariansah.000webhostapp.com/KelolaLapangan.php?id="+data);
+        if(JsonUtils.isNetworkAvailable(CariTempat.this)){
+            new Tampil().execute("https://anggariansah.000webhostapp.com/TampilKelolaTempat.php");
         }else{
-            new AlertDialog.Builder(Kelola_Lapangan_Owner_16.this)
+            new AlertDialog.Builder(CariTempat.this)
                     .setTitle("Failed")
                     .setMessage("Please Check Connection!")
                     .setCancelable(false)
@@ -98,8 +78,57 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
         }
 
 
+        listData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                semuaItemobj = arrayItembaru.get(position);
 
+                String ide = semuaItemobj.getId();
+                Intent a = new Intent(CariTempat.this, DetailPlace.class);
+                a.putExtra("id",ide);
+                startActivity(a);
+
+            }
+        });
+
+        search = (SearchView) findViewById(R.id.search);
+        search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextChange(String text) {
+                // TODO Auto-generated method stub
+                textlength = text.length();
+                arrayItembaru.clear();
+
+                for (int i = 0; i < arraynama.length; i++) {
+                    if (textlength <= arraynama[i].length()) {
+                        if (text.toString().equalsIgnoreCase((String) arraynama[i].subSequence(0, textlength))) {
+                            ItemCariTempat data = new ItemCariTempat();
+
+                            data.setId(arrayid[i]);
+                            data.setLokasi(arraylokasi[i]);
+                            data.setNama(arraynama[i]);
+                            data.setHarga(arrayharga[i]);
+                            data.setGambar(arraygambar[i]);
+
+                            arrayItembaru.add(data);
+                        }
+                    }
+                }
+
+                setAllAdapter();
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // TODO Auto-generated method stub
+                return false;
+            }
+        });
     }
+
 
     public class Tampil extends AsyncTask<String, Void, String> {
 
@@ -125,7 +154,7 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
             }
 
             if(null == hasil || hasil.length() == 0){
-                new AlertDialog.Builder(Kelola_Lapangan_Owner_16.this)
+                new AlertDialog.Builder(CariTempat.this)
                         .setTitle("Failed")
                         .setMessage("Please Check Connection!")
                         .setCancelable(false)
@@ -145,10 +174,11 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
 
                         JsonObj = jsonArray.getJSONObject(i);
 
-                        ItemKelolaLapangan data = new ItemKelolaLapangan();
+                        ItemCariTempat data = new ItemCariTempat();
                         data.setId(JsonObj.getString("id"));
-                        data.setNomer(JsonObj.getString("nomer"));
-                        data.setDesk(JsonObj.getString("desk"));
+                        data.setLokasi(JsonObj.getString("lokasi"));
+                        data.setNama(JsonObj.getString("nama"));
+                        data.setHarga(JsonObj.getString("harga"));
                         data.setGambar(JsonObj.getString("gambar"));
                         arrayItembaru.add(data);
                     }
@@ -164,11 +194,14 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
                     allid.add(semuaItemobj.getId());
                     arrayid = allid.toArray(arrayid);
 
-                    allnomer.add(semuaItemobj.getNomer());
-                    arraynomer = allnomer.toArray(arraynomer);
+                    alllokasi.add(semuaItemobj.getLokasi());
+                    arraylokasi = alllokasi.toArray(arraylokasi);
 
-                    allldesk.add(semuaItemobj.getDesk());
-                    arraydesk = allldesk.toArray(arraydesk);
+                    allnama.add(semuaItemobj.getNama());
+                    arraynama = allnama.toArray(arraynama);
+
+                    allharga.add(semuaItemobj.getHarga());
+                    arrayharga = allharga.toArray(arrayharga);
 
                     allgambar.add(semuaItemobj.getGambar());
                     arraygambar = allgambar.toArray(arraygambar);
@@ -182,9 +215,7 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
     }
 
     public void setAllAdapter(){
-        objAdapter = new AdapterKelolaLapangan(Kelola_Lapangan_Owner_16.this,R.layout.item_kelola_lapangan,arrayItembaru);
+        objAdapter = new AdapterCariTempat(CariTempat.this,R.layout.item_cari_tempat,arrayItembaru);
         listData.setAdapter(objAdapter);
     }
-
-
 }

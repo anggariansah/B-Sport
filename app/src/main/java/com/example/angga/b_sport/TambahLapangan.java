@@ -1,14 +1,12 @@
 package com.example.angga.b_sport;
 
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -38,34 +36,30 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TambahTempat extends AppCompatActivity {
+public class TambahLapangan extends AppCompatActivity {
+
     Toolbar tb;
     Button bah;
 
     private ImageButton mSelectImage;
     private static final int GALLERY_REQUEST = 1;
 
-    String Result,nam,des,harg,la,ja,ln,alama,notel;
+    String Result,nam,des,id;
 
     Bitmap bitmap;
 
-    boolean check = true;
-
-    ImageView imageView;
-
-    EditText nama,desk,alamat,lat,lng,jam,harga,notelp;
+    EditText nama,desk;
 
     ProgressDialog progressDialog ;
 
-    String GetImageNameEditText;
+    String data;
 
-    String ServerUploadPath = "https://anggariansah.000webhostapp.com/TambahTempat.php" ;
-
+    String ServerUploadPath = "http://10.10.100.4/B-sport/TambahLapangan.php" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tambah_tempat);
+        setContentView(R.layout.activity_tambah_lapangan);
 
         //Membuat toolbar Manual
 
@@ -75,15 +69,12 @@ public class TambahTempat extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
+        data = getIntent().getExtras().getString("id");
 
-        nama = (EditText)findViewById(R.id.name);
+
+
+        nama = (EditText)findViewById(R.id.nomer);
         desk = (EditText)findViewById(R.id.desk);
-        alamat = (EditText)findViewById(R.id.lokasi);
-        lat = (EditText)findViewById(R.id.lat);
-        lng = (EditText)findViewById(R.id.lng);
-        jam = (EditText)findViewById(R.id.jam);
-        harga = (EditText)findViewById(R.id.Harga);
-        notelp = (EditText)findViewById(R.id.nope);
 
         mSelectImage = (ImageButton)findViewById(R.id.iton);
 
@@ -103,14 +94,11 @@ public class TambahTempat extends AppCompatActivity {
         bah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                id = data;
                 nam = nama.getText().toString();
                 des = desk.getText().toString();
-                alama = alamat.getText().toString();
-                la = lat.getText().toString();
-                ln = lng.getText().toString();
-                ja = jam.getText().toString();
-                harg = harga.getText().toString();
-                notel = notelp.getText().toString();
 
                 UploadImageServer();
 
@@ -163,12 +151,12 @@ public class TambahTempat extends AppCompatActivity {
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                dialog = ProgressDialog.show(TambahTempat.this, "", "Harap Tunggu Sedang Mengirim", true);
+                dialog = ProgressDialog.show(TambahLapangan.this, "", "Harap Tunggu Sedang Mengirim", true);
             }
 
             @Override
             protected String doInBackground(Void... params) {
-                Result = getUpload(nam,des,alama,la,ln,ja,harg,notel,ConvertImage);
+                Result = getUpload(id,nam,des,ConvertImage);
                 return null;
             }
 
@@ -186,31 +174,26 @@ public class TambahTempat extends AppCompatActivity {
 
     public void resultUpload(String HasilProses){
         if(HasilProses.trim().equalsIgnoreCase("OK")){
-            Toast.makeText(TambahTempat.this, "Data Berhasi Ditambahkan", Toast.LENGTH_SHORT).show();
-            Intent a = new Intent(TambahTempat.this, MenuUtamaOwner.class);
+            Toast.makeText(TambahLapangan.this, "Data Berhasi Ditambahkan", Toast.LENGTH_SHORT).show();
+            Intent a = new Intent(TambahLapangan.this, MenuUtamaOwner.class);
             startActivity(a);
         }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
-            Toast.makeText(TambahTempat.this, "Data Gagal Or Failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(TambahLapangan.this, "Data Gagal Or Failed", Toast.LENGTH_SHORT).show();
         }else{
             Log.d("HasilProses", HasilProses);
         }
     }
 
-    public String getUpload(String nama, String desk, String alamat, String lat, String lng, String jam, String harga, String notelp, String gambar){
+    public String getUpload(String id,String nama, String desk, String gambar){
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://10.10.100.4/B-sport/TambahTempat.php");
+        HttpPost request = new HttpPost("https://anggariansah.000webhostapp.com/TambahLapangan.php");
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
+            nvp.add(new BasicNameValuePair("id",id));
             nvp.add(new BasicNameValuePair("nama",nama));
             nvp.add(new BasicNameValuePair("desk",desk));
-            nvp.add(new BasicNameValuePair("alamat",alamat));
-            nvp.add(new BasicNameValuePair("lat",lat));
-            nvp.add(new BasicNameValuePair("lng",lng));
-            nvp.add(new BasicNameValuePair("jam",jam));
-            nvp.add(new BasicNameValuePair("harga",harga));
-            nvp.add(new BasicNameValuePair("notelp",notelp));
             nvp.add(new BasicNameValuePair("gambar",gambar));
             request.setEntity(new UrlEncodedFormEntity(nvp, HTTP.UTF_8));
             HttpResponse response = client.execute(request);

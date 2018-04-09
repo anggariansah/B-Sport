@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <ImageView
+                    android:id="@+id/gambar"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="10dp"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter" />
+
+                <TextView
+                    android:id="@+id/nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/gambar"
+                    android:text="Nama"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/lokasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nama"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/gambar"
+                    android:text="Lokasi" />
+
+                <TextView
+                    android:id="@+id/harga"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lokasi"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/gambar"
+                    android:text="Harga" />
+
+                <Button
+                    android:id="@+id/kelola"
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:textSize="12dp"
+                    android:layout_toRightOf="@+id/gambar"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/harga"
+                    android:text="Kelola Lapangan"
+                    android:textColor="#fff"
+                    android:background="#5bda8c"
+                    android:textAllCaps="false" />
+
+
+                <Button
+                    android:id="@+id/ubah"
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/kelola"
+                    android:layout_marginLeft="5dp"
+                    android:background="#4dccf2"
+                    android:layout_below="@+id/harga"
+                    android:text="Ubah"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="12dp" />
+
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</LinearLayout>

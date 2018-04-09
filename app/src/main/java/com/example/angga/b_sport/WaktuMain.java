@@ -24,7 +24,7 @@ public class WaktuMain extends AppCompatActivity {
     TextView txDayRem, txwaktu;
     Button end;
     Toolbar toolbar;
-    int jam = 11;
+    int jam = 12;
     int tanggal = 12;
 
     @Override

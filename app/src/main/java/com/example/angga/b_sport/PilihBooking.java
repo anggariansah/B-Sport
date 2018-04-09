@@ -29,8 +29,6 @@ public class PilihBooking extends AppCompatActivity {
     TextView n1,n2;
     CalendarDay cal;
 
-    private Calendar calendar;
-    private int year,month,day;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +41,7 @@ public class PilihBooking extends AppCompatActivity {
 
         cal = CalendarDay.from(2018, 0, 17);
 
-        calendar = Calendar.getInstance();
-        year = calendar.get(Calendar.YEAR);
 
-        month = calendar.get(Calendar.MONTH);
-        day = calendar.get(Calendar.DAY_OF_MONTH);
 
         MaterialCalendarView mcv = (MaterialCalendarView)findViewById(R.id.calendarView);
         mcv.state().edit()

@@ -26,7 +26,7 @@
         <activity android:name=".LoginMenu" />
         <activity android:name=".Register">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
+                android:name="android.support.PARENT_ACTIVIT                  Y"
                 android:value=".LoginMenu" />
         </activity>
         <activity android:name=".LoginUser">
@@ -63,11 +63,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Menu_Booking_11" />
         </activity>
-        <activity android:name=".UbahDeskripsi">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuUtamaOwner" />
-        </activity>
+        <activity android:name=".UbahDeskripsi" />
         <activity android:name=".DetailPlace">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -94,7 +90,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MenuUtamaOwner" />
         </activity>
-        <activity android:name=".TambahTempat"></activity>
+        <activity android:name=".TambahTempat" />
+        <activity android:name=".PilihLapang" />
+        <activity android:name=".TambahLapangan" />
+        <activity android:name=".CariTempat"></activity>
     </application>
 
 </manifest>

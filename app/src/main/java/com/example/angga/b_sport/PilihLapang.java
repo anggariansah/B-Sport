@@ -4,20 +4,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,26 +22,28 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
+public class PilihLapang extends AppCompatActivity {
+
+    Toolbar toolbar;
 
     GridView listData;
-    List<ItemKelolaLapangan> arrayItembaru;
-    AdapterKelolaLapangan objAdapter;
-    private ItemKelolaLapangan semuaItemobj;
+    List<ItemPilihLapang> arrayItembaru;
+    AdapterPilihLapang objAdapter;
+    private ItemPilihLapang semuaItemobj;
     ArrayList<String> allid, allnomer, allldesk, allgambar;
     String[] arrayid, arraynomer, arraydesk, arraygambar;
-    Toolbar toolbar;
     ProgressBar progress;
-    FloatingActionButton tambah;
 
     String data;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.kelola__lapangan__owner_16);
+        setContentView(R.layout.activity_pilih_lapang);
 
-        data = getIntent().getExtras().getString("id");
+
+         data = getIntent().getExtras().getString("id");
 
         //toolbar
         toolbar = (android.support.v7.widget.Toolbar)findViewById(R.id.tb);
@@ -56,20 +54,11 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
 
-        tambah = (FloatingActionButton)findViewById(R.id.tambah);
-        tambah.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent pindah = new Intent(Kelola_Lapangan_Owner_16.this, TambahLapangan.class);
-                pindah.putExtra("id",data);
-                startActivity(pindah);
-            }
-        });
 
         progress = (ProgressBar)findViewById(R.id.progressBar);
 
         listData = (GridView)findViewById(R.id.gridLapang);
-        arrayItembaru = new ArrayList<ItemKelolaLapangan>();
+        arrayItembaru = new ArrayList<ItemPilihLapang>();
 
         allid = new ArrayList<String>();
         allnomer = new ArrayList<String>();
@@ -82,10 +71,10 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
         arraygambar = new String[allgambar.size()];
 
 
-        if(JsonUtils.isNetworkAvailable(Kelola_Lapangan_Owner_16.this)){
-            new Tampil().execute("https://anggariansah.000webhostapp.com/KelolaLapangan.php?id="+data);
+        if(JsonUtils.isNetworkAvailable(PilihLapang.this)){
+            new Tampil().execute("http://10.10.100.4/B-Sport/KelolaLapangan.php?id="+data);
         }else{
-            new AlertDialog.Builder(Kelola_Lapangan_Owner_16.this)
+            new AlertDialog.Builder(PilihLapang.this)
                     .setTitle("Failed")
                     .setMessage("Please Check Connection!")
                     .setCancelable(false)
@@ -98,7 +87,21 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
         }
 
 
+        listData.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                semuaItemobj = arrayItembaru.get(position);
+                final String i = semuaItemobj.getId();
 
+
+                Intent a = new Intent(PilihLapang.this,PilihBooking.class);
+                a.putExtra("id",i);
+                startActivity(a);
+
+
+
+            }
+        });
     }
 
     public class Tampil extends AsyncTask<String, Void, String> {
@@ -125,7 +128,7 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
             }
 
             if(null == hasil || hasil.length() == 0){
-                new AlertDialog.Builder(Kelola_Lapangan_Owner_16.this)
+                new AlertDialog.Builder(PilihLapang.this)
                         .setTitle("Failed")
                         .setMessage("Please Check Connection!")
                         .setCancelable(false)
@@ -145,7 +148,7 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
 
                         JsonObj = jsonArray.getJSONObject(i);
 
-                        ItemKelolaLapangan data = new ItemKelolaLapangan();
+                        ItemPilihLapang data = new ItemPilihLapang();
                         data.setId(JsonObj.getString("id"));
                         data.setNomer(JsonObj.getString("nomer"));
                         data.setDesk(JsonObj.getString("desk"));
@@ -182,9 +185,7 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
     }
 
     public void setAllAdapter(){
-        objAdapter = new AdapterKelolaLapangan(Kelola_Lapangan_Owner_16.this,R.layout.item_kelola_lapangan,arrayItembaru);
+        objAdapter = new AdapterPilihLapang(PilihLapang.this,R.layout.item_pilih_lapang,arrayItembaru);
         listData.setAdapter(objAdapter);
     }
-
-
 }

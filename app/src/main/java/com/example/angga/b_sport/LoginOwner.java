@@ -135,7 +135,7 @@ public class LoginOwner extends AppCompatActivity {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://anggariansah.000webhostapp.com/LoginOwner.php");
+        HttpPost request = new HttpPost("https://anggariansah.000webhostapp.com/LoginOwner.php");
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
             nvp.add(new BasicNameValuePair("email",email));

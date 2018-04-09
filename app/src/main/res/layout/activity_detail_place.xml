@@ -8,7 +8,7 @@
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/toolbar_detail_tempat"
+        android:id="@+id/tb"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:layout_alignParentLeft="true"
@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:src="@drawable/lapangan_badminton"
-        android:layout_below="@+id/toolbar_detail_tempat"
+        android:layout_below="@+id/tb"
         android:background="@drawable/button_round_grey" />
 
     <RelativeLayout
@@ -45,6 +45,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="21dp"
             android:layout_marginStart="21dp"
+            android:id="@+id/nama"
             android:text="@string/judul_deskripsi_tempat"
             android:textColor="#fff"
             android:textSize="20sp" />
@@ -63,19 +64,8 @@
         android:text="@string/ini_deskripsi_aplikasinya"
         android:textColor="#000"
         android:textSize="18sp"
-        android:id="@+id/textView3" />
+        android:id="@+id/desk" />
 
-    <Button
-        android:id="@+id/book_now"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorPrimary"
-        android:text="@string/book_now"
-        android:textColor="#fff"
-        android:textSize="25sp" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -83,12 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:src="@drawable/ic_place"
-        android:layout_below="@+id/textView3"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignStart="@+id/textView3" />
+        android:layout_below="@+id/desk"
+        android:layout_alignLeft="@+id/desk"/>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/alamat"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="@string/tempat"
@@ -104,20 +93,32 @@
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:src="@drawable/money_icon"
-        android:layout_below="@+id/textView4"
+        android:layout_below="@+id/alamat"
         android:layout_alignLeft="@+id/imageView2"
         android:layout_alignStart="@+id/imageView2"
         android:layout_marginTop="13dp" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/jam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView3"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
+        android:layout_below="@+id/alamat"
+        android:layout_toRightOf="@+id/imageView3"
         android:text="@string/harga1"
+        android:layout_marginTop="13dp"
+        android:layout_marginLeft="20dp"
         android:textColor="#000"/>
 
+    <Button
+        android:id="@+id/book_now"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorPrimary"
+        android:text="@string/book_now"
+        android:textColor="#fff"
+        android:textSize="25sp" />
 
 </RelativeLayout>

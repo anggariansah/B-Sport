@@ -43,6 +43,12 @@ public class UbahDeskripsi extends AppCompatActivity {
     }
 
     @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         if(requestCode == GALLERY_REQUEST && resultCode == RESULT_OK){

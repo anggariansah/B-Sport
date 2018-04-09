@@ -10,24 +10,16 @@
         android:icon="@drawable/ic_search"
         android:title="Search" />
     <item
-        android:id="@+id/recomend"
-        android:icon="@drawable/ic_stars"
-        android:title="Rekomendasi" />
-    <item
         android:id="@+id/booking"
         android:icon="@drawable/ic_booking"
         android:title="Booking" />
-    <item
-        android:id="@+id/topup"
-        android:icon="@drawable/ic_payment"
-        android:title="Top Up" />
 
     <item android:title="Setting">
         <menu>
             <item
-                android:id="@+id/setting"
-                android:icon="@drawable/ic_settings"
-                android:title="Setting" />
+                android:id="@+id/about"
+                android:icon="@drawable/about"
+                android:title="About" />
             <item
                 android:id="@+id/keluar"
                 android:icon="@drawable/ic_exit"

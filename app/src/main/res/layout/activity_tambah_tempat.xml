@@ -44,6 +44,28 @@
                 android:scaleType="centerInside"
                 android:layout_centerHorizontal="true" />
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="nama"
+                android:textSize="15sp"
+                android:id="@+id/txname"
+                android:layout_marginLeft="26dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="28dp"
+                android:layout_below="@+id/iton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/txname"
+                android:id="@+id/name"
+                android:background="@drawable/button_round_grey"
+                android:layout_margin="10dp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,7 +75,7 @@
                 android:layout_marginLeft="26dp"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="28dp"
-                android:layout_below="@+id/iton"
+                android:layout_below="@+id/name"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -68,7 +90,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/lokasi"
+                android:text="Alamat"
                 android:textSize="15sp"
                 android:id="@+id/tx2"
                 android:layout_marginLeft="26dp"
@@ -87,6 +109,46 @@
                 android:layout_margin="10dp"/>
 
             <TextView
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="Latitude"
+                android:textSize="15sp"
+                android:id="@+id/txlat"
+                android:layout_marginLeft="26dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/lokasi"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/txlat"
+                android:id="@+id/lat"
+                android:background="@drawable/button_round_grey"
+                android:layout_margin="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longitude"
+                android:textSize="15sp"
+                android:id="@+id/txlong"
+                android:layout_marginTop="15dp"
+                android:layout_below="@+id/lokasi"
+                android:layout_toRightOf="@+id/txlat" />
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/txlong"
+                android:layout_toRightOf="@+id/lat"
+                android:id="@+id/lng"
+                android:background="@drawable/button_round_grey"
+                android:layout_margin="10dp"/>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/jam_operasional"
@@ -95,7 +157,7 @@
                 android:layout_marginLeft="26dp"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="15dp"
-                android:layout_below="@+id/lokasi"
+                android:layout_below="@+id/lat"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
@@ -159,6 +221,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/button_round_orange2"
                 android:text="@string/batal"
                 android:textAppearance="?android:textAppearanceMedium"
@@ -176,6 +239,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/button_round_orange2"
                 android:text="@string/simpan"
                 android:textAppearance="?android:textAppearanceMedium"
