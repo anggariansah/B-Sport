@@ -38,6 +38,12 @@ public class Register extends AppCompatActivity {
         //oncreate end
     }
 
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
+    }
+
     //Mulai Adapter
     class MyAdapter extends FragmentStatePagerAdapter {
         public MyAdapter(FragmentManager fm){

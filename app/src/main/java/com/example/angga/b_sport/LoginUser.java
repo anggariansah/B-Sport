@@ -120,6 +120,7 @@ public class LoginUser extends AppCompatActivity {
 
             Intent a = new Intent(LoginUser.this, MenuUtamaUser.class);
             startActivity(a);
+            finish();
         }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
             Toast.makeText(getApplicationContext(), "Username Atau Password Anda Salah!!", Toast.LENGTH_SHORT).show();
         }else{

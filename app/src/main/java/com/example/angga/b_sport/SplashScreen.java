@@ -34,6 +34,7 @@ public class SplashScreen extends AppCompatActivity {
                 }finally{
                     Intent intent = new Intent(SplashScreen.this, LoginMenu.class);
                     startActivity(intent);
+                    finish();
                 }
             }
         };
