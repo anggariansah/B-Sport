@@ -11,7 +11,7 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Login">
+        app:title="Login User">
 
     </android.support.v7.widget.Toolbar>
 
@@ -19,10 +19,40 @@
         android:id="@+id/kotak_orange"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@color/colorPrimary"
-        android:layout_below="@+id/toolbar_user"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar_user"
+        android:background="@color/colorPrimary"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/vector1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/vector_futsal" />
+
+        <ImageView
+            android:id="@+id/vector2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toEndOf="@+id/vector1"
+            android:layout_toRightOf="@+id/vector1"
+            android:src="@drawable/vector_badminton" />
+
+        <ImageView
+            android:id="@+id/vector3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toEndOf="@+id/vector2"
+            android:layout_toRightOf="@+id/vector2"
+            android:src="@drawable/vector_basketball" />
 
     </RelativeLayout>
 

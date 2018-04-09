@@ -102,42 +102,17 @@
                 android:textColor="#fff"
                 android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/dp_pembook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/jam_pembook"
-                android:layout_marginTop="10dp"
-                android:gravity="start"
-                android:text="@string/DP_booking"
-                android:textColor="#fff"
-                android:textSize="15sp" />
-
-            <Button
-                android:id="@+id/tracker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_below="@+id/dp_pembook"
-                android:layout_marginEnd="100dp"
-                android:layout_marginRight="100dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/button_round_white"
-                android:text="@string/track"
-                android:textColor="#fff" />
 
             <Button
                 android:id="@+id/timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/dp_pembook"
+                android:layout_below="@+id/jam_pembook"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="-90dp"
                 android:layout_marginStart="-90dp"
                 android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/tracker"
-                android:layout_toRightOf="@+id/tracker"
+                android:layout_alignParentRight="true"
                 android:background="@drawable/button_round_white"
                 android:text="@string/timer"
                 android:textColor="#fff" />
@@ -148,3 +123,4 @@
     </android.support.v7.widget.CardView>
 
 </RelativeLayout>
+

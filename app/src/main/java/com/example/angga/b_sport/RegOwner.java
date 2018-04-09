@@ -2,10 +2,12 @@ package com.example.angga.b_sport;
 
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,9 +42,9 @@ import java.util.regex.Pattern;
  */
 public class RegOwner extends Fragment {
 
-    EditText nama,email,pass,nohp;
-    Button reg,fb,gmail;
-    String emai,nam,noh,pas,Result;
+    EditText nama, email, pass, nohp;
+    Button reg, fb, gmail;
+    String emai, nam, noh, pas, Result;
 
     public RegOwner() {
         // Required empty public constructor
@@ -78,7 +80,7 @@ public class RegOwner extends Fragment {
     }
 
 
-    public boolean validasiEmail(String email){
+    public boolean validasiEmail(String email) {
         Pattern pattern;
         Matcher matcher;
         final String email_pattern = "^[_A-Za-z0-9]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -94,14 +96,14 @@ public class RegOwner extends Fragment {
 
         @Override
         protected void onPreExecute() {
-            dialog = ProgressDialog.show(getActivity(),"","Harap Tunggu Sedang Mengirim",true);
+            dialog = ProgressDialog.show(getActivity(), "", "Harap Tunggu Sedang Mengirim", true);
 
         }
 
         @Override
         protected Void doInBackground(Void... params) {
 
-            Result = getSimpan(nam,emai,noh,pas);
+            Result = getSimpan(nam, emai, noh, pas);
             return null;
         }
 
@@ -112,34 +114,33 @@ public class RegOwner extends Fragment {
         }
     }
 
-    public void resultSimpan(String HasilProses){
-        if(HasilProses.trim().equalsIgnoreCase("OK")){
+    public void resultSimpan(String HasilProses) {
+        if (HasilProses.trim().equalsIgnoreCase("OK")) {
+            showdialog();
             Toast.makeText(getActivity(), "Pendaftaran Berhasil", Toast.LENGTH_SHORT).show();
-            Intent a = new Intent(getActivity(), LoginOwner.class);
-            startActivity(a);
-        }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
+        } else if (HasilProses.trim().equalsIgnoreCase("Failed")) {
             Toast.makeText(getActivity(), "Pendaftaran Gagal Coba Kembali", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             Log.d("HasilProses", HasilProses);
         }
     }
 
-    public String getSimpan(String nama, String email, String nohp, String pass){
+    public String getSimpan(String nama, String email, String nohp, String pass) {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
         HttpPost request = new HttpPost("https://anggariansah.000webhostapp.com/RegisterOwner.php");
-        try{
+        try {
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
-            nvp.add(new BasicNameValuePair("nama",nama));
-            nvp.add(new BasicNameValuePair("email",email));
-            nvp.add(new BasicNameValuePair("nohp",nohp));
-            nvp.add(new BasicNameValuePair("pass",pass));
+            nvp.add(new BasicNameValuePair("nama", nama));
+            nvp.add(new BasicNameValuePair("email", email));
+            nvp.add(new BasicNameValuePair("nohp", nohp));
+            nvp.add(new BasicNameValuePair("pass", pass));
             request.setEntity(new UrlEncodedFormEntity(nvp, HTTP.UTF_8));
             HttpResponse response = client.execute(request);
             result = request(response);
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             result = "Unable To connect";
         }
 
@@ -148,24 +149,50 @@ public class RegOwner extends Fragment {
 
     //Request Method
 
-    public static String request(HttpResponse response){
+    public static String request(HttpResponse response) {
         String result = "";
-        try{
+        try {
             InputStream in = response.getEntity().getContent();
             BufferedReader reader = new BufferedReader(new InputStreamReader(in));
             StringBuilder str = new StringBuilder();
             String line = null;
-            while((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null) {
                 str.append(line + "\n");
             }
             in.close();
             result = str.toString();
 
-        }catch (Exception ex){
+        } catch (Exception ex) {
             result = "Error";
         }
 
         return result;
+    }
+
+    public void showdialog() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
+
+        // set title dialog
+        alertDialogBuilder.setTitle("Pendaftaran Berhhasil");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("          Silahkan Login !")
+                .setIcon(R.drawable.checklist)
+                .setCancelable(false)
+                .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent a = new Intent(getActivity(), LoginOwner.class);
+                        startActivity(a);
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
     }
 
 }
