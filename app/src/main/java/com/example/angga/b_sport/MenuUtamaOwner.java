@@ -260,10 +260,15 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
             case R.id.keluar:
                 Intent keluar = new Intent(MenuUtamaOwner.this, LoginMenu.class);
                 startActivity(keluar);
-                Toast.makeText(getApplicationContext(), "Anda Akan Keluar", Toast.LENGTH_SHORT).show();
+                finish();
                 break;
         }
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
     }
 }

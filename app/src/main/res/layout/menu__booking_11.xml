@@ -14,8 +14,7 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Booking"
-        app:titleMarginStart="100dp">
+        app:title="Booking">
 
     </android.support.v7.widget.Toolbar>
 

@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 /**
@@ -14,20 +16,30 @@ import java.util.ArrayList;
 
 public class NotifikasiAdapter extends RecyclerView.Adapter<NotifikasiAdapter.ViewHolder> {
 
-    private ArrayList<String> rvData;
+    private ArrayList<String> nam,lap,tang,ja;
 
-    public NotifikasiAdapter(ArrayList<String> inputData) {
-        rvData = inputData;
+    public NotifikasiAdapter(ArrayList<String> nama,ArrayList<String> lapang, ArrayList<String> tanggal, ArrayList<String> jam) {
+        nam = nama;
+        lap = lapang;
+        tang = tanggal;
+        ja = jam;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         // di tutorial ini kita hanya menggunakan data String untuk tiap item
-        public TextView tvTitle;
+        public TextView nama_book;
+        public TextView lapangan_book;
+        public TextView tanggal_book;
+        public TextView jam_book;
+
 
         public ViewHolder(View v) {
             super(v);
-            tvTitle = (TextView) v.findViewById(R.id.judul_notif);
+            nama_book = (TextView) v.findViewById(R.id.nama_notif);
+            lapangan_book = (TextView) v.findViewById(R.id.lapangan_notif);
+            tanggal_book = (TextView) v.findViewById(R.id.tanggal_notif);
+            jam_book = (TextView) v.findViewById(R.id.jam_notif);
         }
     }
 
@@ -44,13 +56,15 @@ public class NotifikasiAdapter extends RecyclerView.Adapter<NotifikasiAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - mengambil elemen dari dataset (ArrayList) pada posisi tertentu
         // - mengeset isi view dengan elemen dari dataset tersebut
-        final String name = rvData.get(position);
-        holder.tvTitle.setText(rvData.get(position));
+        holder.nama_book.setText(nam.get(position));
+        holder.lapangan_book.setText(lap.get(position));
+        holder.tanggal_book.setText(tang.get(position));
+        holder.jam_book.setText(ja.get(position));
     }
 
     @Override
     public int getItemCount() {
         // menghitung ukuran dataset / jumlah data yang ditampilkan di RecyclerView
-        return rvData.size();
+        return nam.size();
     }
 }

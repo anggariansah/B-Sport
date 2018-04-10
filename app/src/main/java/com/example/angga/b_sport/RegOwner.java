@@ -180,11 +180,12 @@ public class RegOwner extends Fragment {
                 .setMessage("          Silahkan Login !")
                 .setIcon(R.drawable.checklist)
                 .setCancelable(false)
-                .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent a = new Intent(getActivity(), LoginOwner.class);
                         startActivity(a);
+                        getActivity().finish();
                     }
                 });
 

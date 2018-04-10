@@ -14,7 +14,7 @@ public class Notifikasi_Owner_19 extends AppCompatActivity {
     private RecyclerView rvView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
-    private ArrayList<String> dataSet;
+    private ArrayList<String> nama,lapangan,tanggal,jam;
     Toolbar toolbar;
 
     @Override
@@ -30,7 +30,10 @@ public class Notifikasi_Owner_19 extends AppCompatActivity {
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
 
-        dataSet = new ArrayList<>();
+        nama = new ArrayList<>();
+        lapangan = new ArrayList<>();
+        tanggal = new ArrayList<>();
+        jam = new ArrayList<>();
         initDataset();
 
         rvView = (RecyclerView) findViewById(R.id.rv_notif);
@@ -44,7 +47,7 @@ public class Notifikasi_Owner_19 extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         rvView.setLayoutManager(layoutManager);
 
-        adapter = new NotifikasiAdapter(dataSet);
+        adapter = new NotifikasiAdapter(nama,lapangan,tanggal,jam);
         rvView.setAdapter(adapter);
 
     }
@@ -56,11 +59,9 @@ public class Notifikasi_Owner_19 extends AppCompatActivity {
          * dalam prakteknya bisa bermacam2
          * tidak hanya String seperti di kasus ini
          */
-        dataSet.add("Angga booking Lapangan 1 untuk jam 11.00 - 12.00");
-        dataSet.add("Alvin booking Lapangan 5 untuk jam 13.00 - 14.00");
-        dataSet.add("Harun booking Lapangan 3 untuk jam 10.00 - 11.00");
-        dataSet.add("Budi booking Lapangan 4 untuk jam 10.00 - 11.00");
-        dataSet.add("Dono booking Lapangan 1 untuk jam 15.00 - 16.00");
-        dataSet.add("Susi booking Lapangan 3 untuk jam 12.00 - 13.00");
+        nama.add("Angga");
+        lapangan.add("Lapangan 1");
+        tanggal.add("12 April 2018");
+        jam.add("08.00 - 09.00");
     }
 }

@@ -56,4 +56,9 @@ public class LoginMenu extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+    }
 }

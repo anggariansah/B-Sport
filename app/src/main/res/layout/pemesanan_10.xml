@@ -14,8 +14,7 @@
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:title="Pemesanan"
-        app:titleMarginStart="100dp">
+        app:title="Pemesanan">
 
     </android.support.v7.widget.Toolbar>
 
@@ -105,19 +104,6 @@
                 android:layout_marginTop="10dp"
                 android:gravity="start"
                 android:text="@string/Jam_booking"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#fff" />
-
-            <TextView
-                android:id="@+id/dp_book"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/jam_book"
-                android:layout_marginLeft="20dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:gravity="start"
-                android:text="@string/DP_booking"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="#fff" />
 
