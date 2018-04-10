@@ -125,16 +125,7 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
             }
 
             if(null == hasil || hasil.length() == 0){
-                new AlertDialog.Builder(Kelola_Lapangan_Owner_16.this)
-                        .setTitle("Failed")
-                        .setMessage("Please Check Connection!")
-                        .setCancelable(false)
-                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // Whatever...
-                            }
-                        }).show();
+
                 progress.setVisibility(View.GONE);
             }else{
                 try {

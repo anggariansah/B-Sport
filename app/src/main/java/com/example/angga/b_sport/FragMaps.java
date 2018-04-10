@@ -17,6 +17,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -85,6 +86,7 @@ public class FragMaps extends Fragment implements OnMapReadyCallback {
 //            }
 //        });
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GorSima,zoom));
+        mMap.setMyLocationEnabled(true);
 
     }
 
@@ -140,22 +142,47 @@ public class FragMaps extends Fragment implements OnMapReadyCallback {
             }
         }
 
-        private void addMarker(final String id, LatLng latlng, final String title) {
+        private void addMarker(final String ide, LatLng latlng, final String title) {
+
             markerOptions.position(latlng);
             markerOptions.title(title);
-            mMap.addMarker(markerOptions);
+            markerOptions.snippet(ide);
+            mMap.addMarker(markerOptions .icon(BitmapDescriptorFactory.fromResource(R.drawable.ico_lapang)));
+
+            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+
+
+                    markerOptions.snippet("");
+
+                    return false;
+                }
+            });
 
             mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                 @Override
                 public void onInfoWindowClick(Marker marker) {
+
+                    markerOptions.snippet(ide);
+
+                    String idi = marker.getSnippet();
+
+
                     Intent pindah = new Intent(getActivity(), DetailPlace.class);
-                    pindah.putExtra("id",id);
+                    pindah.putExtra("id",idi);
                     startActivity(pindah);
                 }
             });
         }
 
+
+
+
+
+
     }
+
 
 
 }

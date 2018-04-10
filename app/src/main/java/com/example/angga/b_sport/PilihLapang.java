@@ -129,8 +129,8 @@ public class PilihLapang extends AppCompatActivity {
 
             if(null == hasil || hasil.length() == 0){
                 new AlertDialog.Builder(PilihLapang.this)
-                        .setTitle("Failed")
-                        .setMessage("Please Check Connection!")
+                        .setTitle("Kosong")
+                        .setMessage("Lapangan Belum Tersedia!")
                         .setCancelable(false)
                         .setPositiveButton("ok", new DialogInterface.OnClickListener() {
                             @Override

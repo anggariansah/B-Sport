@@ -1,5 +1,6 @@
 package com.example.angga.b_sport;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -27,6 +28,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -57,12 +59,16 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
     ProgressBar progress;
     EditText by;
 
+    String data;
+    TextView name;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_utama_owner);
+
+        data = getIntent().getExtras().getString("id");
 
 
         //Membuat toolbar Manual
@@ -78,6 +84,17 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
         ab.syncState();
         nv = (NavigationView) findViewById(R.id.navigation);
         nv.setNavigationItemSelectedListener(this);
+
+
+        View header = nv.getHeaderView(0);
+
+        name = (TextView)header.findViewById(R.id.nama);
+
+        if(JsonUtils.isNetworkAvailable(MenuUtamaOwner.this)){
+            new TampilNama().execute("https://anggariansah.000webhostapp.com/TampilNamaOwner.php?id="+data);
+        }else{
+            Toast.makeText(MenuUtamaOwner.this,"No Network Connection!!!",Toast.LENGTH_SHORT).show();
+        }
 
 
         tambah = (FloatingActionButton)findViewById(R.id.tambah);
@@ -150,6 +167,61 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
 
     }
 
+
+
+    public class TampilNama extends AsyncTask<String, Void, String> {
+        ProgressDialog pDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            pDialog = new ProgressDialog(MenuUtamaOwner.this);
+            pDialog.setMessage("Loading...");
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            return JsonUtils.getJSONString(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(String hasil) {
+            super.onPostExecute(hasil);
+
+            if (null != pDialog && pDialog.isShowing()) {
+                pDialog.dismiss();
+            }
+
+            if (null == hasil || hasil.length() == 0) {
+                Toast.makeText(MenuUtamaOwner.this, "Tidak Ada data!!!", Toast.LENGTH_SHORT).show();
+            } else {
+                try {
+                    JSONObject JsonUtama = new JSONObject(hasil);
+                    JSONArray jsonArray = JsonUtama.getJSONArray("data");
+                    JSONObject JsonObj = null;
+                    for (int i = 0; i < jsonArray.length(); i++) {
+
+                        JsonObj = jsonArray.getJSONObject(i);
+
+                        name.setText(JsonObj.getString("nama"));
+
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+
+    }
+
+
+
     public class Tampil extends AsyncTask<String, Void, String> {
 
 
@@ -174,16 +246,7 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
             }
 
             if(null == hasil || hasil.length() == 0){
-                new AlertDialog.Builder(MenuUtamaOwner.this)
-                        .setTitle("Failed")
-                        .setMessage("Please Check Connection!")
-                        .setCancelable(false)
-                        .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // Whatever...
-                            }
-                        }).show();
+
                 progress.setVisibility(View.GONE);
             }else{
                 try {

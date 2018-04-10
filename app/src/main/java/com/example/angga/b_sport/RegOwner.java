@@ -70,8 +70,22 @@ public class RegOwner extends Fragment {
                 noh = nohp.getText().toString();
                 nam = nama.getText().toString();
 
+                if(emai.equals("") || pas.equals("") || noh.equals("") || nam.equals("")){
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Failed")
+                            .setMessage("Harap Lengkapi Isian Anda!")
+                            .setCancelable(false)
+                            .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Whatever...
+                                }
+                            }).show();
+                }else{
+                    new simpan().execute();
+                }
+                
 
-                new simpan().execute();
 
             }
         });

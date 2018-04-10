@@ -78,7 +78,7 @@ public class LoginUser extends AppCompatActivity {
                 pas = pass.getText().toString();
 
                 if (JsonUtils.isNetworkAvailable(LoginUser.this)) {
-                    new Tampil().execute("https://anggariansah.000webhostapp.com/LoginUser.php?email=" + email + "&&pass=" + pass);
+                    new Tampil().execute("https://anggariansah.000webhostapp.com/LoginUser.php?email="+emai+"&&pass="+pas);
                 } else {
                     Toast.makeText(LoginUser.this, "No Network Connection!!!", Toast.LENGTH_SHORT).show();
                 }
