@@ -187,8 +187,7 @@ public class TambahTempat extends AppCompatActivity {
     public void resultUpload(String HasilProses){
         if(HasilProses.trim().equalsIgnoreCase("OK")){
             Toast.makeText(TambahTempat.this, "Data Berhasi Ditambahkan", Toast.LENGTH_SHORT).show();
-            Intent a = new Intent(TambahTempat.this, MenuUtamaOwner.class);
-            startActivity(a);
+            finish();
         }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
             Toast.makeText(TambahTempat.this, "Data Gagal Or Failed", Toast.LENGTH_SHORT).show();
         }else{

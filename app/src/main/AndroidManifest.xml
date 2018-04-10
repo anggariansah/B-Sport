@@ -79,14 +79,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".PilihBooking" />
         </activity>
-        <activity android:name=".Menu_Booking_11" />
+        <activity android:name=".Menu_Booking_11" >
+        </activity>
         <activity android:name=".Notifikasi_Owner_19">
 
         </activity>
         <activity android:name=".Kelola_Lapangan_Owner_16">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MenuUtamaOwner" />
         </activity>
         <activity android:name=".TambahTempat" />
         <activity android:name=".PilihLapang" />

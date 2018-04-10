@@ -64,7 +64,7 @@ public class CariTempat extends AppCompatActivity {
 
 
         if(JsonUtils.isNetworkAvailable(CariTempat.this)){
-            new Tampil().execute("https://anggariansah.000webhostapp.com/TampilKelolaTempat.php");
+            new Tampil().execute("https://anggariansah.000webhostapp.com/CariTempat.php");
         }else{
             new AlertDialog.Builder(CariTempat.this)
                     .setTitle("Failed")

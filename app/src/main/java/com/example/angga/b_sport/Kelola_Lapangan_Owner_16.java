@@ -97,8 +97,12 @@ public class Kelola_Lapangan_Owner_16 extends AppCompatActivity {
                     }).show();
         }
 
+    }
 
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
     }
 
     public class Tampil extends AsyncTask<String, Void, String> {

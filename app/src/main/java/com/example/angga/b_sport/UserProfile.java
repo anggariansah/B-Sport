@@ -16,10 +16,16 @@ public class UserProfile extends AppCompatActivity {
 
         //Membuat toolbar Manual
 
-        tb = (android.support.v7.widget.Toolbar) findViewById(R.id.tb_profile_user);
+        tb = (Toolbar) findViewById(R.id.tb_profile_user);
         setSupportActionBar(tb);
         //back_button
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return false;
     }
 }

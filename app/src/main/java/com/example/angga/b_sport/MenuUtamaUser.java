@@ -71,6 +71,7 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
         //Mendefiniskan Tab Layout
         viewPager = (ViewPager) findViewById(R.id.vp);
         tl = (TabLayout) findViewById(R.id.tl);
+
         MyAdapter adapter = new MyAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tl.setupWithViewPager(viewPager);
@@ -161,7 +162,7 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
                 startActivity(a);
                 Toast.makeText(getApplicationContext(), "Test", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.booking:
+            case R.id.booking_lapang:
                 Intent book = new Intent(MenuUtamaUser.this, Menu_Booking_11.class);
                 startActivity(book);
 

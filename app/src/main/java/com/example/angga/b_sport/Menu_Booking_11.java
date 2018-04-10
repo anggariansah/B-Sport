@@ -8,11 +8,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 public class Menu_Booking_11 extends AppCompatActivity {
 
     ViewPager viewPager;
     TabLayout tabLayout;
+    Toolbar tb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +24,17 @@ public class Menu_Booking_11 extends AppCompatActivity {
         //oncreate
         viewPager = (ViewPager) findViewById(R.id.vp_booking);
         tabLayout = (TabLayout) findViewById(R.id.tab_booking);
-        Menu_Booking_11.MyAdapter adapter = new Menu_Booking_11.MyAdapter(getSupportFragmentManager());
+
+
+        MyAdapter adapter = new MyAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
         //oncreate end
+
+
+        //toolbar
+        tb = (Toolbar)findViewById(R.id.tb_menu_booking);
+        setSupportActionBar(tb);
 
         //back_button
         ActionBar ab = getSupportActionBar();
