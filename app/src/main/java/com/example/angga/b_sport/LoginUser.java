@@ -1,9 +1,11 @@
 package com.example.angga.b_sport;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -14,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -22,6 +26,9 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -35,8 +42,8 @@ public class LoginUser extends AppCompatActivity {
 
     Toolbar toolbar;
     Button login;
-    EditText email,pass;
-    String emai,pas,Result;
+    EditText email, pass;
+    String emai, pas, id;
 
     SesionLogin session;
 
@@ -56,7 +63,7 @@ public class LoginUser extends AppCompatActivity {
                 Toast.LENGTH_LONG).show();
 
         //toolbar
-        toolbar = (Toolbar)findViewById(R.id.toolbar_user);
+        toolbar = (Toolbar) findViewById(R.id.toolbar_user);
         setSupportActionBar(toolbar);
 
         //back_button
@@ -70,103 +77,97 @@ public class LoginUser extends AppCompatActivity {
                 emai = email.getText().toString();
                 pas = pass.getText().toString();
 
-                new Masuk().execute();
-
-
+                if (JsonUtils.isNetworkAvailable(LoginUser.this)) {
+                    new Tampil().execute("https://anggariansah.000webhostapp.com/LoginUser.php?email=" + email + "&&pass=" + pass);
+                } else {
+                    Toast.makeText(LoginUser.this, "No Network Connection!!!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+
     }
 
-    public boolean validasiEmail(String email){
-        Pattern pattern;
-        Matcher matcher;
-        final String email_pattern = "^[_A-Za-z0-9]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-        pattern = Pattern.compile(email_pattern);
-        matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-
-
-    //Simpan Data Method
-    public class Masuk extends AsyncTask<Void, Void, Void> {
-        ProgressDialog dialog;
+    public class Tampil extends AsyncTask<String, Void, String> {
+        ProgressDialog pDialog;
 
         @Override
         protected void onPreExecute() {
-            dialog = ProgressDialog.show(LoginUser.this,"","Harap Tunggu Sedang Memverifikasi",true);
+            super.onPreExecute();
 
+            pDialog = new ProgressDialog(LoginUser.this);
+            pDialog.setMessage("Loading...");
+            pDialog.setCancelable(false);
+            pDialog.show();
         }
 
         @Override
-        protected Void doInBackground(Void... params) {
-
-            Result = getSimpan(emai,pas);
-            return null;
+        protected String doInBackground(String... params) {
+            return JsonUtils.getJSONString(params[0]);
         }
 
         @Override
-        protected void onPostExecute(Void result) {
-            dialog.dismiss();
-            resultSimpan(Result);
-        }
-    }
+        protected void onPostExecute(String hasil) {
+            super.onPostExecute(hasil);
 
-    public void resultSimpan(String HasilProses){
-        if(HasilProses.trim().equalsIgnoreCase("OK")){
-            Toast.makeText(getApplicationContext(), "Login Berhasil", Toast.LENGTH_SHORT).show();
-
-            session.createUserLoginSession("User Session ", emai);
-
-            Intent a = new Intent(LoginUser.this, MenuUtamaUser.class);
-            startActivity(a);
-            finish();
-        }else if(HasilProses.trim().equalsIgnoreCase("Failed")){
-            Toast.makeText(getApplicationContext(), "Username Atau Password Anda Salah!!", Toast.LENGTH_SHORT).show();
-        }else{
-            Log.d("HasilProses", HasilProses);
-        }
-    }
-
-    public String getSimpan(String email, String pass){
-        String result = "";
-
-        HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("https://anggariansah.000webhostapp.com/LoginUser.php");
-        try{
-            List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
-            nvp.add(new BasicNameValuePair("email",email));
-            nvp.add(new BasicNameValuePair("pass",pass));
-            request.setEntity(new UrlEncodedFormEntity(nvp, HTTP.UTF_8));
-            HttpResponse response = client.execute(request);
-            result = request(response);
-
-        }catch (Exception ex){
-            result = "Unable To connect";
-        }
-
-        return result;
-    }
-
-    //Request Method
-
-    public static String request(HttpResponse response){
-        String result = "";
-        try{
-            InputStream in = response.getEntity().getContent();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-            StringBuilder str = new StringBuilder();
-            String line = null;
-            while((line = reader.readLine()) != null){
-                str.append(line + "\n");
+            if (null != pDialog && pDialog.isShowing()) {
+                pDialog.dismiss();
             }
-            in.close();
-            result = str.toString();
 
-        }catch (Exception ex){
-            result = "Error";
+            if (null == hasil || hasil.length() == 0) {
+                Toast.makeText(LoginUser.this, "Tidak Ada data!!!", Toast.LENGTH_SHORT).show();
+            } else {
+                try {
+                    JSONObject JsonUtama = new JSONObject(hasil);
+
+                    JSONArray res = JsonUtama.getJSONArray("hasil");
+                    JSONObject re = null;
+                    re = res.getJSONObject(0);
+
+                    final String result = re.getString("result");
+
+                    if (result.equals("true")) {
+
+                        JSONArray jsonArray = JsonUtama.getJSONArray("data");
+                        JSONObject JsonObj = null;
+
+                        JsonObj = jsonArray.getJSONObject(0);
+
+                        final String id = JsonObj.getString("id");
+
+                        new AlertDialog.Builder(LoginUser.this)
+                                .setTitle("Succes")
+                                .setMessage("Login Berhasil!")
+                                .setCancelable(false)
+                                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent a = new Intent(LoginUser.this, MenuUtamaUser.class);
+                                        a.putExtra("id", id);
+                                        startActivity(a);
+                                    }
+                                }).show();
+                    } else {
+                        new AlertDialog.Builder(LoginUser.this)
+                                .setTitle("Failed")
+                                .setMessage("Username Atau Password Salah!")
+                                .setCancelable(false)
+                                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                }).show();
+                    }
+
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
         }
 
-        return result;
     }
+
 }
