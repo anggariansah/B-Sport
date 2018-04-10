@@ -125,7 +125,7 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
 
 
         if(JsonUtils.isNetworkAvailable(MenuUtamaOwner.this)){
-            new Tampil().execute("https://anggariansah.000webhostapp.com/TampilKelolaTempat.php");
+            new Tampil().execute("https://anggariansah.000webhostapp.com/TampilKelolaTempat.php?id="+data);
         }else{
             new AlertDialog.Builder(MenuUtamaOwner.this)
                     .setTitle("Failed")
