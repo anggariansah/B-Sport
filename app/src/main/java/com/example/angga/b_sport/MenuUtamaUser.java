@@ -77,6 +77,15 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
 
 
         View header = nv.getHeaderView(0);
+        ImageView profile = (ImageView) header.findViewById(R.id.userimage);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(MenuUtamaUser.this, UserProfile.class);
+                a.putExtra("id", data);
+                startActivity(a);
+            }
+        });
 
         name = (TextView)header.findViewById(R.id.nama);
 

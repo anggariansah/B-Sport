@@ -87,6 +87,15 @@ public class MenuUtamaOwner extends AppCompatActivity implements NavigationView.
 
 
         View header = nv.getHeaderView(0);
+        ImageView profile = (ImageView) header.findViewById(R.id.ownerimage);
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent a = new Intent(MenuUtamaOwner.this, OwnerProfile.class);
+                a.putExtra("id", data);
+                startActivity(a);
+            }
+        });
 
         name = (TextView)header.findViewById(R.id.nama);
 

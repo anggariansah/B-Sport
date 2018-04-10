@@ -88,6 +88,7 @@ public class FragMaps extends Fragment implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(GorSima,zoom));
         mMap.setMyLocationEnabled(true);
 
+
     }
 
 

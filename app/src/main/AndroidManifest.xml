@@ -91,7 +91,9 @@
         <activity android:name=".TambahTempat" />
         <activity android:name=".PilihLapang" />
         <activity android:name=".TambahLapangan" />
-        <activity android:name=".CariTempat"></activity>
+        <activity android:name=".CariTempat" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".OwnerProfile"></activity>
     </application>
 
 </manifest>
