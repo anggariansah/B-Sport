@@ -126,10 +126,11 @@ public class FragMaps extends Fragment implements OnMapReadyCallback {
 
                         JsonObj = jsonArray.getJSONObject(i);
 
+                        String id = JsonObj.getString("id");
                         title = JsonObj.getString("nama");
                         latLng = new LatLng(Double.parseDouble(JsonObj.getString("lat")), Double.parseDouble(JsonObj.getString("lng")));
 
-                        addMarker(latLng, title);
+                        addMarker(id,latLng, title);
                     }
 
                 } catch (JSONException e) {
@@ -139,7 +140,7 @@ public class FragMaps extends Fragment implements OnMapReadyCallback {
             }
         }
 
-        private void addMarker(LatLng latlng, final String title) {
+        private void addMarker(final String id, LatLng latlng, final String title) {
             markerOptions.position(latlng);
             markerOptions.title(title);
             mMap.addMarker(markerOptions);
@@ -147,7 +148,9 @@ public class FragMaps extends Fragment implements OnMapReadyCallback {
             mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
                 @Override
                 public void onInfoWindowClick(Marker marker) {
-                    Toast.makeText(getActivity(), marker.getTitle(), Toast.LENGTH_SHORT).show();
+                    Intent pindah = new Intent(getActivity(), DetailPlace.class);
+                    pindah.putExtra("id",id);
+                    startActivity(pindah);
                 }
             });
         }

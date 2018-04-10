@@ -72,7 +72,7 @@ public class PilihLapang extends AppCompatActivity {
 
 
         if(JsonUtils.isNetworkAvailable(PilihLapang.this)){
-            new Tampil().execute("http://10.10.100.4/B-Sport/KelolaLapangan.php?id="+data);
+            new Tampil().execute("https://anggariansah.000webhostapp.com/KelolaLapangan.php?id="+data);
         }else{
             new AlertDialog.Builder(PilihLapang.this)
                     .setTitle("Failed")

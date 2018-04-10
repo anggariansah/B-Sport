@@ -49,12 +49,12 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
         nv = (NavigationView) findViewById(R.id.navigation);
         nv.setNavigationItemSelectedListener(this);
 
-//        //Mendefiniskan Tab Layout
-//        viewPager = (ViewPager) findViewById(R.id.vp);
-//        tl = (TabLayout) findViewById(R.id.tl);
-//        MyAdapter adapter = new MyAdapter(getSupportFragmentManager());
-//        viewPager.setAdapter(adapter);
-//        tl.setupWithViewPager(viewPager);
+        //Mendefiniskan Tab Layout
+        viewPager = (ViewPager) findViewById(R.id.vp);
+        tl = (TabLayout) findViewById(R.id.tl);
+        MyAdapter adapter = new MyAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(adapter);
+        tl.setupWithViewPager(viewPager);
 
     }
 
@@ -103,6 +103,7 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
                 f = new FragMaps();
             }
 
+
             return f;
         }
 
@@ -122,8 +123,10 @@ public class MenuUtamaUser extends AppCompatActivity implements NavigationView.O
         }
     }
 
+
     @Override
     public void onBackPressed() {
         finishAffinity();
     }
+
 }

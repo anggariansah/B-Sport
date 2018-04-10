@@ -200,7 +200,7 @@ public class TambahTempat extends AppCompatActivity {
         String result = "";
 
         HttpClient client = new DefaultHttpClient();
-        HttpPost request = new HttpPost("http://10.10.100.4/B-sport/TambahTempat.php");
+        HttpPost request = new HttpPost("https://anggariansah.000webhostapp.com/TambahTempat.php");
         try{
             List<NameValuePair> nvp = new ArrayList<NameValuePair>(6);
             nvp.add(new BasicNameValuePair("nama",nama));
